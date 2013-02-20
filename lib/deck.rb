@@ -15,7 +15,7 @@ class Deck
 		@cards.shuffle!
 	end
 
-	def pop_cards(number)
+	def deal(number)
 		popped = []
 		number.times do |i|
 			popped << @cards.pop

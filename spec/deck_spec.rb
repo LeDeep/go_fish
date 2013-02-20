@@ -16,4 +16,4 @@ puts "#{deck.cards}"
 
 last_three = deck.cards[-3..-1]
 
-p "#{deck.pop_cards(3)} should have the same cards as #{last_three}" 
+p "#{deck.deal(3)} should have the same cards as #{last_three}" 
