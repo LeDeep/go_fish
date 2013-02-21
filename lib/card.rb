@@ -14,6 +14,6 @@ class Card
 	end
 
 	def to_s
-		self.value + " of " + self.suit
+		@value + " of " + @suit
 	end
 end
