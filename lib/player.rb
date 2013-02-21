@@ -16,9 +16,19 @@ class Player
 		@done = false
 	end	
 
-	def go_fish(card)
-		@done = true if @hand.include?(card) == false
-		@hand << card		
+	def go_fish(card_array,request)
+		#return if card_array[0].class != Card
+		#if @hand.include?(card_array[0])
+		#	puts "@@ #{card_array[0]} off the deck should NOT be in #{@hand}"
+		#	puts "@@ #{@done}"
+		if card_array[0].value == request
+			puts "!!!!CARD ARRAY MATCHES REQUEST!!!!"
+			
+		end	
+		@done = true
+		puts "Gone fish: #{card_array[0].value} is pop, #{request} is the request"
+		#end
+		@hand << card_array[0]
 	end
 
 	def has_book
@@ -33,8 +43,11 @@ class Player
 	def add_book
 		book = has_book
 		if book != nil
-			@books += 1 
-			@hand = @hand - book		
+			@books += value_array_arg(book).uniq.length
+			@hand = @hand - book
+			book	
+		else
+			nil
 		end
 	end
 
@@ -54,6 +67,12 @@ class Player
 	end
 
 	private 
+
+	def value_array_arg(card_array) 
+		array = []
+		card_array.each { |card| array << card.value }
+		array 
+	end
 
 	def value_array  
 		array = []

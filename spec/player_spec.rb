@@ -27,7 +27,7 @@ player.receive_hand([Card.new("Hearts","Ace"),Card.new("Diamonds","Ace"),Card.ne
 
 # puts "#{player.done?} should be false."
 
-player.go_fish(Card.new("Clubs", "Three"))
+player.go_fish([Card.new("Clubs", "Three")])
 puts "#{player.done?} should be true."
 puts "#{player.hand} should contain three of clubs"
 
@@ -38,3 +38,12 @@ puts "#{player.ready} should be false."
 
 puts "#{player.give_cards("Ace")} should be all the Aces."
 puts "#{player.hand} should not contain Aces. "
+
+queens = Card.new("Spades","Queen")
+jacks = Card.new("Spades","Jack")
+
+player.receive_hand([queens,queens,queens,queens,jacks,jacks,jacks,jacks])
+puts "#{player.books} should be 0."
+player.add_book
+puts "#{player.books} should be 2."
+

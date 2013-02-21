@@ -10,7 +10,7 @@ class Game
 	end
 
 	def winner
-		@players.max_by {|player| player.books}
+		@players.max_by {|player| player.books}.name
 	end
 
   def deck_empty?
